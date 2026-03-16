@@ -1,0 +1,23 @@
+my-website/
+├─ index.html
+└─ images/
+     ├─ sun.jpg
+     ├─ earth.jpg
+     ├─ mars.jpg
+     ├─ mercury.jpg
+     ├─ venus.jpg
+     ├─ jupiter.jpg
+     ├─ saturn.jpg
+     ├─ uranus.jpg
+     ├─ neptune.jpg
+     ├─ moon.jpg
+     ├─ phobos.jpg
+     ├─ deimos.jpg
+     ├─ io.jpg
+     ├─ europa.jpg
+     ├─ ganymede.jpg
+     ├─ titan.jpg
+     ├─ ship1.png
+     ├─ ship2.png
+     ├─ ship3.png
+     └─ starfield.jpg
