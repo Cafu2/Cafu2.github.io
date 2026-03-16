@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>موقع الفضاء - رواية</title>
+
+<!-- 🌟 كود Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3890751386914333"
+     crossorigin="anonymous"></script>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-image: url('images/starfield.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+  #sun { position: absolute; top:50%; left:50%; width:150px; height:150px; transform:translate(-50%, -50%); z-index:10; }
+  .planet { position:absolute; width:60px; height:60px; border-radius:50%; }
+  .ship { position:absolute; width:50px; height:50px; transition:all 2s linear; z-index:20; }
+  .story { position:relative; z-index:50; max-width:800px; margin:20px auto; background:rgba(0,0,0,0.5); padding:20px; border-radius:10px; }
+</style>
+</head>
+<body>
+
+<img id="sun" src="images/sun.jpg" alt="Sun">
+
+<!-- الكواكب -->
+<img class="planet" id="mercury" src="images/mercury.jpg" alt="Mercury">
+<img class="planet" id="venus" src="images/venus.jpg" alt="Venus">
+<img class="planet" id="earth" src="images/earth.jpg" alt="Earth">
+<img class="planet" id="mars" src="images/mars.jpg" alt="Mars">
+<img class="planet" id="jupiter" src="images/jupiter.jpg" alt="Jupiter">
+<img class="planet" id="saturn" src="images/saturn.jpg" alt="Saturn">
+<img class="planet" id="uranus" src="images/uranus.jpg" alt="Uranus">
+<img class="planet" id="neptune" src="images/neptune.jpg" alt="Neptune">
+
+<!-- الأقمار -->
+<img class="planet" id="moon" src="images/moon.jpg" alt="Moon">
+<img class="planet" id="phobos" src="images/phobos.jpg" alt="Phobos">
+<img class="planet" id="deimos" src="images/deimos.jpg" alt="Deimos">
+<img class="planet" id="io" src="images/io.jpg" alt="Io">
+<img class="planet" id="europa" src="images/europa.jpg" alt="Europa">
+<img class="planet" id="ganymede" src="images/ganymede.jpg" alt="Ganymede">
+<img class="planet" id="titan" src="images/titan.jpg" alt="Titan">
+
+<!-- المركبات الفضائية -->
+<img class="ship" id="ship1" src="images/ship1.png" alt="Spaceship 1">
+<img class="ship" id="ship2" src="images/ship2.png" alt="Spaceship 2">
+<img class="ship" id="ship3" src="images/ship3.png" alt="Spaceship 3">
+
+<!-- مكان الرواية -->
+<div class="story">
+  <h1>الفصل الأول</h1>
+  <p>هنا تكتب نص الفصل الأول...</p>
+</div>
+
+<script>
+// دوران الكواكب حول الشمس
+const planets = [
+  {id:'mercury', radius:100, speed:0.05},
+  {id:'venus', radius:130, speed:0.03},
+  {id:'earth', radius:160, speed:0.02},
+  {id:'mars', radius:190, speed:0.015},
+  {id:'jupiter', radius:230, speed:0.01},
+  {id:'saturn', radius:270, speed:0.008},
+  {id:'uranus', radius:310, speed:0.006},
+  {id:'neptune', radius:350, speed:0.004}
+];
+
+const sunX = window.innerWidth/2;
+const sunY = window.innerHeight/2;
+let angle = 0;
+
+function rotatePlanets() {
+  planets.forEach(p=>{
+    const el = document.getElementById(p.id);
+    const x = sunX + p.radius*Math.cos(angle/p.speed) - el.offsetWidth/2;
+    const y = sunY + p.radius*Math.sin(angle/p.speed) - el.offsetHeight/2;
+    el.style.left = x + 'px';
+    el.style.top = y + 'px';
+  });
+  angle += 0.02;
+  requestAnimationFrame(rotatePlanets);
+}
+rotatePlanets();
+
+// حركة المركبات الفضائية عشوائية كل 10 ثواني
+const ships = document.querySelectorAll('.ship');
+function moveShipsRandom() {
+  ships.forEach(s=>{
+    const x = Math.random()*(window.innerWidth-50);
+    const y = Math.random()*(window.innerHeight-50);
+    s.style.left = x + 'px';
+    s.style.top = y + 'px';
+  });
+}
+moveShipsRandom();
+setInterval(moveShipsRandom, 10000);
+</script>
+
+</body>
+</html>
