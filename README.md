@@ -1,9 +1,3 @@
-# Cafu2.github.io
-<html>
-<head>
-<title>Cafu</title>
-</head>
-<body>
+# Cafu Website
 
-</body>
-</html>
+This is my personal website.
